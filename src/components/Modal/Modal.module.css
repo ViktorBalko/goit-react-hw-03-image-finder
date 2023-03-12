@@ -1,0 +1,21 @@
+.ModalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 11, 21, 0.722);
+}
+
+.ModalContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 85%;
+  max-width: 900px;
+  width: 100%;
+  padding: 12px;
+  background-color: rgb(32, 32, 32);
+  border-radius: 30px;
+}
