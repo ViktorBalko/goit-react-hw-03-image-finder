@@ -1,50 +1,47 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import styles from './Modal.module.css';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export default class Modal extends Component {
+class Modal extends Component {
   componentDidMount() {
-    // console.log('modal componentDidMount');
     window.addEventListener('keydown', this.handleKeyDown);
   }
 
   componentWillUnmount() {
-    // console.log('modal componentWillUnmount');
     window.removeEventListener('keydown', this.handleKeyDown);
   }
 
-  handleKeyDown = e => {
-    // console.log(e.code);
-    if (e.code === 'Escape') {
-      // console.log('нажали ESC, нужно закрыть модалку');
+  handleKeyDown = evt => {
+    if (evt.code === 'Escape') {
       this.props.onClose();
     }
   };
 
   handleClickBackdrop = event => {
-    // console.log('кликнули в бекдроп');
-    // console.log('currentTagrget: ', event.currentTarget);
-    // console.log('target: ', event.target);
-
     if (event.currentTarget === event.target) {
       this.props.onClose();
     }
   };
 
   render() {
+    const { currentImage } = this.props;
     return createPortal(
       <div className={styles.ModalBackdrop} onClick={this.handleClickBackdrop}>
-        <div className={styles.ModalContent}>{this.props.children}</div>
+        <div>
+          <img src={currentImage} alt="" className={styles.ModalContent} />
+        </div>
       </div>,
       modalRoot
     );
   }
 }
 
-// Modal.propTypes = {
-//   onClose: PropTypes.func.isRequired,
-// };
+Modal.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  currentImage: PropTypes.string.isRequired,
+};
 
-// export default Modal;
+export default Modal;

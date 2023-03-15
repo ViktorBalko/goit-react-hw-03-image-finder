@@ -13,9 +13,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   min-height: 85%;
-  max-width: 900px;
+  max-width: 85%;
   width: 100%;
-  padding: 12px;
+  /* padding: 12px; */
   background-color: rgb(32, 32, 32);
-  border-radius: 30px;
+  /* border-radius: 30px; */
 }

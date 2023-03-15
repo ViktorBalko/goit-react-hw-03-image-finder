@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import styles from './SearchBar.module.css';
 
-export class SearchBar extends Component {
+export default class SearchBar extends Component {
   state = {
     request: '',
   };
 
-  handleSearchRequest = event => {
-    this.setState({ request: event.currentTarget.value.toLowerCase() });
+  handleRequestChange = evt => {
+    this.setState({ request: evt.currentTarget.value.toLowerCase() });
   };
 
-  handleSearchSubmit = event => {
-    event.preventDefault();
+  handleSubmit = evt => {
+    evt.preventDefault();
 
     if (this.state.request.trim() === '') {
       return toast.error('Enter request');
@@ -26,22 +26,16 @@ export class SearchBar extends Component {
   render() {
     return (
       <header className={styles.SearchBar}>
-        <form
-          onSubmit={this.handleSearchSubmit}
-          className={styles.SearchBarForm}
-        >
+        <form className={styles.SearchBarForm} onSubmit={this.handleSubmit}>
           <button type="submit" className={styles.SearchBarButton}>
-            <span>search</span>
+            Search
           </button>
-
           <input
-            type="text"
             className={styles.SearchBarInput}
-            // placeholder="search..."
-            autoComplete="off"
-            autoFocus
+            type="text"
+            name="request"
             value={this.state.request}
-            onChange={this.handleSearchRequest}
+            onChange={this.handleRequestChange}
           />
         </form>
       </header>
@@ -53,4 +47,4 @@ SearchBar.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
 
-export default SearchBar;
+// export default SearchBar;
