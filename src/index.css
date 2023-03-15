@@ -42,23 +42,3 @@ img {
   max-width: 100%;
   height: auto;
 }
-.btn {
-  justify-content: center;
-  align-items: center;
-  display: block;
-  width: 250px;
-  height: 55px;
-  border-radius: 11px;
-  border: none;
-  margin: 50px auto 50px;
-  color: #d1d1d1;
-  transition: 350ms;
-  background-color: #016fd5ba;
-}
-
-.btn:hover {
-  scale: 1.1;
-  transition: 250ms;
-  color: #ffffffe3;
-  background-color: #740053e3;
-}

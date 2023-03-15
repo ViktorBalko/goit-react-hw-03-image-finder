@@ -12,10 +12,10 @@ export class App extends Component {
   state = {
     request: '',
     response: [],
-    currentPage: 1,
     loading: false,
     error: null,
     totalHits: 0,
+    currentPage: 1,
     currentImage: '',
     showModal: false,
   };
@@ -65,7 +65,6 @@ export class App extends Component {
   render() {
     const { error, loading, response, showModal, totalHits, currentImage } =
       this.state;
-
     const totalPage = response.length / totalHits;
     return (
       <>

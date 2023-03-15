@@ -4,7 +4,7 @@ import styles from './GalleryItem.module.css';
 
 const GalleryItem = ({ item, onClick }) => {
   const handleClick = () => {
-    onClick(item.largeImageUrl);
+    onClick(item.largeImageURL);
   };
 
   return (
